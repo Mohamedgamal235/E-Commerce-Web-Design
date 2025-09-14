@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AURA</title>
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Slick Slider CSS -->
+    <!-- Slick Slider  -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    <!-- Custom CSS -->
+    <!-- Custom -->
     <link rel="stylesheet" href="CSS/style.css">
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -30,16 +30,16 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav px-5">
-                    <li class="nav-item px-3"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item px-3"><a class="nav-link" href="#">Products</a></li>
+                    <li class="nav-item px-3"><a class="nav-link" href="Home.html">Home</a></li>
+                    <li class="nav-item px-3"><a class="nav-link" href="Product.html">Products</a></li>
                     <li class="nav-item px-3"><a class="nav-link" href="About.html">About</a></li>
-                    <li class="nav-item px-3"><a class="nav-link" href="#">Add Product</a></li>
+                    <li class="nav-item px-3"><a class="nav-link" href="AddProduct.html">Add Product</a></li>
                 </ul>
-                <button class="btn  ms-3 cart-btn d-flex justify-content-center align-items-center">
-                    <img src="Images/entrance.png" alt="Login Icon">
+                <button class="btn  ms-3 cart-btn d-flex justify-content-center align-items-center" onclick="LogOut()">
+                    <img src="Images/leave.png" alt="Logout Icon">
                 </button>
                 <button class="btn  ms-3 cart-btn d-flex justify-content-center align-items-center">
-                    <img src="Images/shopping-cart.png" alt="Shopping Cart">
+                    <a href="Cart.html"><img src="Images/shopping-cart.png" alt="Shopping Cart"></a>
                 </button>
             </div>
         </div>
@@ -50,7 +50,7 @@
             <div class="container py-5 my-5">
                 <h1 class="fw-bold display-5">Elegance in Every Detail</h1>
                 <p class="text-muted text-center">Discover our curated collection of timeless pieces, crafted with passion and precision.</p>
-                <a href="#" class="btn btn-dark btn-lg mt-3">Shop The Collection</a>
+                <a href="#headerFeactured" class="btn btn-dark btn-lg mt-3">Shop The Collection</a>
             </div>
         </section>
 
@@ -60,7 +60,7 @@
                 <div class="flex-grow-1"></div>
                 <h3 class="text-center fw-bolder flex-grow-1" id="headerFeactured">Featured Products</h3>
                 <div class="flex-grow-1 d-flex justify-content-end">
-                    <a href="#" class="btn btn-outline-dark view-all-btn">View All →</a>
+                    <a href="Product.html" class="btn btn-outline-dark view-all-btn">View All →</a>
                 </div>
             </div>
 
@@ -134,21 +134,21 @@
 
         <section class="bg-light py-5 sec3">
             <div class="container text-center">
-                <h3 class="fw-bold">How It Works</h3>
+                <h3 class="fw-bold" id="HowItWork">How It Works</h3>
                 <p class="text-muted">A seamless experience from browsing to unboxing.</p>
                 <div class="row mt-4">
                         <div class="col-md-4">
-                            <a href=""><img src="Images/search-animation.gif" alt="Search" class="search-icon"></a>
+                            <a href="Product.html"><img src="Images/search-animation.gif" alt="Search" class="search-icon"></a>
                             <h5 class="mt-3">1. Discover</h5>
                             <p>Browse curated collections and find the products that match your style.</p>
                         </div>
                     <div class="col-md-4">
-                        <a href=""><img src="Images/cart-animation.gif" alt="Search" class="search-icon"></a>
+                        <a href="Product.html"><img src="Images/cart-animation.gif" alt="Search" class="search-icon"></a>
                         <h5 class="mt-3">2. Choose Prodcut</h5>
                         <p>Add your favorites to the cart and enjoy a smooth, secure shopping experience.</p>
                     </div>
                     <div class="col-md-4">
-                        <a href=""><img src="Images/basket-annimated.gif" alt="Search" class="search-icon"></a>
+                        <a href="Cart.html"><img src="Images/basket-annimated.gif" alt="Search" class="search-icon"></a>
                         <h5 class="mt-3">3. Checkout</h5>
                         <p>Complete your purchase in seconds and get your order delivered with care.</p>
                     </div>
@@ -166,7 +166,7 @@
                     <h6 class="text-warning">PREMIUM QUALITY</h6>
                     <h2 class="fw-bold">Crafted for the Modern Wardrobe</h2>
                     <p>We believe in quality over quantity. Each piece in our collection is thoughtfully designed and crafted from the finest materials to create lasting staples for your wardrobe. Our artisans bring decades of experience to every stitch.</p>
-                    <a href="#" class="btn btn-outline-dark">Explore Collection</a>
+                    <a href="Product.html" class="btn btn-outline-dark">Explore Collection</a>
                 </div>
             </div>
 
@@ -175,7 +175,7 @@
                     <h6 class="text-warning">SUSTAINABLE FASHION</h6>
                     <h2 class="fw-bold">Ethically Made, Forever Loved</h2>
                     <p>Join us in making fashion more sustainable. We partner with ethical suppliers and use eco-friendly materials to create pieces that not only look good but do good for our planet. Every purchase supports responsible manufacturing practices.</p>
-                    <a href="#" class="btn btn-outline-dark">Our Mission</a>
+                    <a href="About.html" class="btn btn-outline-dark">Our Mission</a>
                 </div>
                 <div data-aos="fade-left" class="ms-4">
                     <img src="images/fashion2.png" id="image2" class="img-fluid rounded shadow" alt="Sustainable Fashion">
@@ -190,7 +190,7 @@
                     <h6 class="text-warning">EXCEPTIONAL SERVICE</h6>
                     <h2 class="fw-bold">Your Style Journey, Our Priority</h2>
                     <p>From personalized styling advice to seamless returns, we're here to make your shopping experience extraordinary. Our dedicated team of style experts is always ready to help you find the perfect pieces that reflect your unique personality.</p>
-                    <a href="#" class="btn btn-outline-dark">Get Styled</a>
+                    <a href="About.html" class="btn btn-outline-dark">Explore Service</a>
                 </div>
             </div>
         </section>
@@ -216,19 +216,19 @@
                 <div class="col-md-3 mb-4">
                     <h6 class="headerFooter fw-bold">Quick Links</h6>
                     <ul class="list-unstyled">
-                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">Home</a></li>
-                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">Products</a></li>
+                        <li class="py-2"><a href="Home.html" class="text-light text-decoration-none iconLink">Home</a></li>
+                        <li class="py-2"><a href="Product.html" class="text-light text-decoration-none iconLink">Products</a></li>
                         <li class="py-2"><a href="About.html" class="text-light text-decoration-none iconLink">About</a></li>
-                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">Add Product</a></li>
+                        <li class="py-2"><a href="AddProduct.html" class="text-light text-decoration-none iconLink">Add Product</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-3 mb-4">
                     <h6 class="headerFooter fw-bold">Customer Care</h6>
                     <ul class="list-unstyled ">
-                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">Featured Products</a></li>
-                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">Check your cart</a></li>
-                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">How it work</a></li>
+                        <li class="py-2"><a href="#headerFeactured" class="text-light text-decoration-none iconLink">Featured Products</a></li>
+                        <li class="py-2"><a href="Cart.html" class="text-light text-decoration-none iconLink">Check your cart</a></li>
+                        <li class="py-2"><a href="#HowItWork" class="text-light text-decoration-none iconLink">How it work</a></li>
                     </ul>
                 </div>
 
