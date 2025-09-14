@@ -12,6 +12,14 @@ let Products = [
     { imageUrl: "Images/perfum.png", name: "Luxury Perfume", price: 150.00 }
 ];
 
+function LogOut() {
+    window.location.href = "login.html";
+}
+
+function GoToCart() {
+    window.location.href = "cart.html";
+}
+
 function loadCart() {
     const raw = localStorage.getItem(CartItemStorage);
     return raw ? JSON.parse(raw) : [];
