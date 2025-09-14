@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Slick Slider CSS -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+                <i class="fa-solid fa-store me-3"></i>
+                <span>AURA</span>
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav px-5">
+                    <li class="nav-item px-3"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item px-3"><a class="nav-link" href="#">Products</a></li>
+                    <li class="nav-item px-3"><a class="nav-link" href="About.html">About</a></li>
+                    <li class="nav-item px-3"><a class="nav-link" href="#">Add Product</a></li>
+                </ul>
+                <button class="btn  ms-3 cart-btn d-flex justify-content-center align-items-center">
+                    <img src="Images/entrance.png" alt="Login Icon">
+                </button>
+                <button class="btn  ms-3 cart-btn d-flex justify-content-center align-items-center">
+                    <img src="Images/shopping-cart.png" alt="Shopping Cart">
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="text-center py-5 bg-light sec1">
+            <div class="container py-5 my-5">
+                <h1 class="fw-bold display-5">Elegance in Every Detail</h1>
+                <p class="text-muted text-center">Discover our curated collection of timeless pieces, crafted with passion and precision.</p>
+                <a href="#" class="btn btn-dark btn-lg mt-3">Shop The Collection</a>
+            </div>
+        </section>
+
+        <section class=" py-5  sec2">
+            <div class="container">
+            <div class="d-flex justify-content-between align-items-center my-3">
+                <div class="flex-grow-1"></div>
+                <h3 class="text-center fw-bolder flex-grow-1" id="headerFeactured">Featured Products</h3>
+                <div class="flex-grow-1 d-flex justify-content-end">
+                    <a href="#" class="btn btn-outline-dark view-all-btn">View All →</a>
+                </div>
+            </div>
+
+            <div class="autoplay">
+                <div class="card shadow mx-3 product-card">
+                    <img src="Images/The-Classic-Trench.png" class="card-img" alt="Trench">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="text-white">The Classic Trench</h5>
+                        <p class="price">$350.00</p>
+                    </div>
+                </div>
+                <div class="card shadow mx-3 product-card">
+                    <img src="Images/Silk Scarf.png" class="card-img" alt="Scarf">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="text-white">Silk Scarf</h5>
+                        <p class="price">$120.00</p>
+                    </div>
+                </div>
+                <div class="card shadow mx-3 product-card">
+                    <img src="Images/bag.png" class="card-img" alt="Bag">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="text-white">Leather Tote Bag</h5>
+                        <p class="price">$480.00</p>
+                    </div>
+                </div>
+                <div class="card shadow mx-3 product-card">
+                    <img src="Images/sweetshert.png" class="card-img" alt="Sweater">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="text-white">Cashmere Sweater</h5>
+                        <p class="price">$290.00</p>
+                    </div>
+                </div>
+                <div class="card shadow mx-3 product-card">
+                    <img src="Images/dress.png" class="card-img" alt="Dress">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="text-white">Evening Dress</h5>
+                        <p class="price">$650.00</p>
+                    </div>
+                </div>
+                <div class="card shadow mx-3 product-card">
+                    <img src="Images/watch.png" class="card-img" alt="Watch">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="text-white">Luxury Watch</h5>
+                        <p class="price">$900.00</p>
+                    </div>
+                </div>
+                <div class="card shadow mx-3 product-card">
+                    <img src="Images/shose1.png" class="card-img" alt="Shoes">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="text-white">Leather Shoes</h5>
+                        <p class="price">$220.00</p>
+                    </div>
+                </div>
+                <div class="card shadow mx-3 product-card">
+                    <img src="Images/hat.png" class="card-img" alt="Hat">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="text-white">Classic Hat</h5>
+                        <p class="price">$80.00</p>
+                    </div>
+                </div>
+                <div class="card shadow mx-3 product-card">
+                    <img src="Images/perfum.png" class="card-img" alt="Perfume">
+                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                        <h5 class="text-white">Luxury Perfume</h5>
+                        <p class="price">$150.00</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <section class="bg-light py-5 sec3">
+            <div class="container text-center">
+                <h3 class="fw-bold">How It Works</h3>
+                <p class="text-muted">A seamless experience from browsing to unboxing.</p>
+                <div class="row mt-4">
+                        <div class="col-md-4">
+                            <a href=""><img src="Images/search-animation.gif" alt="Search" class="search-icon"></a>
+                            <h5 class="mt-3">1. Discover</h5>
+                            <p>Browse curated collections and find the products that match your style.</p>
+                        </div>
+                    <div class="col-md-4">
+                        <a href=""><img src="Images/cart-animation.gif" alt="Search" class="search-icon"></a>
+                        <h5 class="mt-3">2. Choose Prodcut</h5>
+                        <p>Add your favorites to the cart and enjoy a smooth, secure shopping experience.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a href=""><img src="Images/basket-annimated.gif" alt="Search" class="search-icon"></a>
+                        <h5 class="mt-3">3. Checkout</h5>
+                        <p>Complete your purchase in seconds and get your order delivered with care.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 sec4">
+
+            <div class="container d-flex align-items-center mb-5">
+                <div data-aos="fade-right" class="me-4">
+                    <img src="images/fashion-trech.png" id="image1" class="img-fluid rounded shadow" alt="Quality Craftsmanship">
+                </div>
+                <div data-aos="fade-left">
+                    <h6 class="text-warning">PREMIUM QUALITY</h6>
+                    <h2 class="fw-bold">Crafted for the Modern Wardrobe</h2>
+                    <p>We believe in quality over quantity. Each piece in our collection is thoughtfully designed and crafted from the finest materials to create lasting staples for your wardrobe. Our artisans bring decades of experience to every stitch.</p>
+                    <a href="#" class="btn btn-outline-dark">Explore Collection</a>
+                </div>
+            </div>
+
+            <div class="container d-flex align-items-center mb-5">
+                <div data-aos="fade-right">
+                    <h6 class="text-warning">SUSTAINABLE FASHION</h6>
+                    <h2 class="fw-bold">Ethically Made, Forever Loved</h2>
+                    <p>Join us in making fashion more sustainable. We partner with ethical suppliers and use eco-friendly materials to create pieces that not only look good but do good for our planet. Every purchase supports responsible manufacturing practices.</p>
+                    <a href="#" class="btn btn-outline-dark">Our Mission</a>
+                </div>
+                <div data-aos="fade-left" class="ms-4">
+                    <img src="images/fashion2.png" id="image2" class="img-fluid rounded shadow" alt="Sustainable Fashion">
+                </div>
+            </div>
+
+            <div class="container d-flex align-items-center">
+                <div data-aos="fade-right" class="me-4">
+                    <img src="images/fashion3.png" id="image3" class="img-fluid rounded shadow" alt="Customer Experience">
+                </div>
+                <div data-aos="fade-left">
+                    <h6 class="text-warning">EXCEPTIONAL SERVICE</h6>
+                    <h2 class="fw-bold">Your Style Journey, Our Priority</h2>
+                    <p>From personalized styling advice to seamless returns, we're here to make your shopping experience extraordinary. Our dedicated team of style experts is always ready to help you find the perfect pieces that reflect your unique personality.</p>
+                    <a href="#" class="btn btn-outline-dark">Get Styled</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+
+    <footer class="bg-dark text-light pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <a class="headerFooter navbar-brand fw-bold d-flex align-items-center text-light mb-3" href="#">
+                        <i class="fa-solid fa-store me-2 text-white"></i>
+                        <span>AURA</span>
+                    </a>
+                    <p>Redefining AURA fashion with timeless elegance and contemporary style.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-light icoons iconLink"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light icoons iconLink"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-light icoons iconLink"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h6 class="headerFooter fw-bold">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">Home</a></li>
+                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">Products</a></li>
+                        <li class="py-2"><a href="About.html" class="text-light text-decoration-none iconLink">About</a></li>
+                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">Add Product</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h6 class="headerFooter fw-bold">Customer Care</h6>
+                    <ul class="list-unstyled ">
+                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">Featured Products</a></li>
+                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">Check your cart</a></li>
+                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">How it work</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h6 class="headerFooter fw-bold">Newsletter</h6>
+                    <p>Subscribe for exclusive offers and updates</p>
+                    <form class="d-flex">
+                    <input type="email" class="form-control me-2" placeholder="Your email">
+                    <button class="btn btn-warning" type="submit">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="border-secondary">
+
+            <div class="text-center small">
+                © 2025 Luxe. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init();
+    $('.autoplay').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        dots: true,
+        arrows: true,
+        prevArrow: '<button type="button" class="slick-prev"><i class="fa-solid fa-chevron-left"></i></button>',
+        nextArrow: '<button type="button" class="slick-next"><i class="fa-solid fa-chevron-right"></i></button>',
+        responsive: [
+        { breakpoint: 992, settings: { slidesToShow: 2 }},
+        { breakpoint: 768, settings: { slidesToShow: 1 }}
+        ]
+    });
+    </script>
+</body>
+</html>
