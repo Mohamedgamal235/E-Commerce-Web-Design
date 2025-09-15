@@ -39,14 +39,24 @@
                     <small id="email-msg" class="text-danger"></small>
                     </div>
                     <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control py-2" id="password" placeholder="Create a password">
-                    <small id="pass-msg" class="text-danger"></small>
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control py-2" id="password" placeholder="Create a password">
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                <i class="fa fa-eye" id="Eye1"></i>
+                            </button>
+                        </div>
+                        <small id="pass-msg" class="text-danger"></small>
                     </div>
                     <div class="mb-3">
-                    <label for="confirmPassword" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control py-2" id="confirmPassword" placeholder="Confirm your password">
-                    <small id="confirm-msg" class="text-danger"></small>
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control py-2" id="confirmPassword" placeholder="Confirm your password">
+                            <button class="btn btn-outline-secondary" type="button" id="toggleConfirmPassword">
+                                <i class="fa fa-eye" id="Eye2"></i>
+                            </button>
+                        </div>
+                        <small id="confirm-msg" class="text-danger"></small>
                     </div>
                     <div class="d-grid gap-2 mb-4">
                     <button type="submit" class="btn btn-dark py-2">Create Account</button>
