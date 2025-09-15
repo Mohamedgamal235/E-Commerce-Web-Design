@@ -1,0 +1,27 @@
+body { 
+    background: #f7f7f7; 
+}
+
+.card-cart { 
+    border-radius: 12px; 
+}
+
+.summary-card { 
+    border-radius: 12px; 
+}
+
+.product-img { 
+    width: 120px; height: 120px; object-fit: cover; border-radius: 8px; 
+}
+
+.qty-btn { 
+    width: 34px; height: 34px; padding: 0; 
+}
+
+.ProdcutCards .card { 
+    border-radius: 12px; 
+}
+
+.ProdcutCards img { 
+    border-top-left-radius: 12px; border-top-right-radius: 12px; 
+}
