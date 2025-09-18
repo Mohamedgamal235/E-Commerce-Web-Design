@@ -17,6 +17,10 @@ function loadProducts() {
     return raw ? JSON.parse(raw) : [];
 }
 
+function saveProducts(products) {
+    localStorage.setItem(ProductsStorage, JSON.stringify(products));
+}
+
 function formatPrice(n) {
     return `$ ${Number(n).toFixed(2)}`;
 }
@@ -193,6 +197,7 @@ function renderCart() {
     });
     cartList.appendChild(wrapper);
     updateSummary(calculateSubtotal(cart));
+    attachCheckoutHandler();
 }
 
 window.addEventListener('storage', (e) => {
@@ -204,3 +209,73 @@ window.addEventListener('storage', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     renderCart();
 });
+
+function LogOut() {
+    localStorage.removeItem("currentUser");
+    try { sessionStorage.clear(); } catch(e) {}
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "You have been logged out",
+        showConfirmButton: false,
+        timer: 1200,
+    }).then(() => {
+        window.location.replace("login.html");
+        setTimeout(() => {
+        history.pushState(null, "", "login.html");
+        window.addEventListener("popstate", function () {
+            history.pushState(null, "", "login.html");
+        });
+        }, 0);
+    });
+}
+
+function attachCheckoutHandler() {
+    const checkoutBtn = document.getElementById('checkout-btn');
+    if (!checkoutBtn) return;
+    if (checkoutBtn._attached) return;
+    checkoutBtn._attached = true;
+    checkoutBtn.addEventListener('click', () => {
+        const cart = loadCart();
+        if (!cart || cart.length === 0) {
+            Swal.fire({ position: 'center', icon: 'info', title: 'Your cart is empty', showConfirmButton: false, timer: 1200 });
+            return;
+        }
+        const products = loadProducts();
+        for (let i = 0; i < cart.length; i++) {
+            const item = cart[i];
+            const prod = products.find(p => p.name === item.name && p.imageUrl === item.imageUrl);
+            const available = prod ? Number(prod.stock || 0) : Number(item.stock || 0);
+            const qty = Number(item.quantity || 1);
+            if (available < qty) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: `Not enough stock for "${item.name}". Available: ${available}`,
+                    showConfirmButton: true
+                });
+                return;
+            }
+        }
+        checkoutBtn.disabled = true;
+        for (let i = 0; i < cart.length; i++) {
+            const item = cart[i];
+            const prodIndex = products.findIndex(p => p.name === item.name && p.imageUrl === item.imageUrl);
+            if (prodIndex !== -1) {
+                products[prodIndex].stock = Math.max(0, (Number(products[prodIndex].stock || 0) - Number(item.quantity || 1)));
+            }
+        }
+        saveProducts(products);
+        saveCart([]);
+        renderCart();
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Order placed successfully',
+            showConfirmButton: false,
+            timer: 1600
+        }).then(() => {
+            checkoutBtn.disabled = true;
+        });
+    });
+}

@@ -22,7 +22,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav px-5">
-                    <li class="nav-item px-3"><a class="nav-link" href="Home.html">Home</a></li>
+                    <li class="nav-item px-3"><a class="nav-link" href="HomeLoggedin.html">Home</a></li>
                     <li class="nav-item px-3"><a class="nav-link" href="Product.html">Products</a></li>
                     <li class="nav-item px-3"><a class="nav-link" href="About.html">About</a></li>
                     <li class="nav-item px-3"><a class="nav-link" href="AddProduct.html">Add Product</a></li>
@@ -107,19 +107,19 @@
                 <div class="col-md-3 mb-4">
                     <h6 class="headerFooter fw-bold">Quick Links</h6>
                     <ul class="list-unstyled">
-                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">Home</a></li>
-                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">Products</a></li>
-                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">About</a></li>
-                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">Add Product</a></li>
+                        <li class="py-2"><a href="HomeLoggedin.html" class="text-light text-decoration-none iconLink">Home</a></li>
+                        <li class="py-2"><a href="Product.html" class="text-light text-decoration-none iconLink">Products</a></li>
+                        <li class="py-2"><a href="About.html" class="text-light text-decoration-none iconLink">About</a></li>
+                        <li class="py-2"><a href="AddProduct.html" class="text-light text-decoration-none iconLink">Add Product</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-3 mb-4">
                     <h6 class="headerFooter fw-bold">Customer Care</h6>
                     <ul class="list-unstyled ">
-                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">Featured Products</a></li>
-                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">Check your cart</a></li>
-                        <li class="py-2"><a href="#" class="text-light text-decoration-none iconLink">How it work</a></li>
+                        <li class="py-2"><a href="HomeLoggedin.html#headerFeactured" class="text-light text-decoration-none iconLink">Featured Products</a></li>
+                        <li class="py-2"><a href="Cart.html" class="text-light text-decoration-none iconLink">Check your cart</a></li>
+                        <li class="py-2"><a href="HomeLoggedin.html#HowItWork" class="text-light text-decoration-none iconLink">How it work</a></li>
                     </ul>
                 </div>
 
@@ -143,8 +143,14 @@
         </div>
     </footer>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="JS/login_logout.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    if (!localStorage.getItem("currentUser")) {
+        window.location.replace("login.html");
+    }
+    </script>
 </body>
 </html>

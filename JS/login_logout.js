@@ -32,7 +32,6 @@ function validatePassword(password) {
   );
 }
 
-// ========== Sign Up ==========
 function attachSignUpHandler() {
   const form = document.getElementById("signupForm");
   if (!form) return;
@@ -45,48 +44,53 @@ function attachSignUpHandler() {
   const passMsg = document.getElementById("pass-msg");
   const confirmMsg = document.getElementById("confirm-msg");
 
-  emailInput.addEventListener("input", () => {
-    const check = validateEmail(emailInput.value.trim());
-    emailMsg.textContent = check.msg;
-    if (check.valid) {
-      emailMsg.classList.remove("text-danger");
-      emailMsg.classList.add("text-success");
-    } else {
-      emailMsg.classList.add("text-danger");
-      emailMsg.classList.remove("text-success");
-    }
-  });
+  if (emailInput) {
+    emailInput.addEventListener("input", () => {
+      const check = validateEmail(emailInput.value.trim());
+      if (emailMsg) emailMsg.textContent = check.msg;
+      if (check.valid) {
+        emailMsg && emailMsg.classList.remove("text-danger");
+        emailMsg && emailMsg.classList.add("text-success");
+      } else {
+        emailMsg && emailMsg.classList.add("text-danger");
+        emailMsg && emailMsg.classList.remove("text-success");
+      }
+    });
+  }
 
-  passwordInput.addEventListener("input", () => {
-    if (!validatePassword(passwordInput.value)) {
-      passMsg.textContent =
-        "Password must have number, uppercase, symbol, and ≥8 chars";
-      passMsg.classList.add("text-danger");
-      passMsg.classList.remove("text-success");
-    } else {
-      passMsg.textContent = "Strong password ✅";
-      passMsg.classList.remove("text-danger");
-      passMsg.classList.add("text-success");
-    }
-  });
+  if (passwordInput) {
+    passwordInput.addEventListener("input", () => {
+      if (!validatePassword(passwordInput.value)) {
+        passMsg && (passMsg.textContent = "Password must have number, uppercase, symbol, and ≥8 chars");
+        passMsg && passMsg.classList.add("text-danger");
+        passMsg && passMsg.classList.remove("text-success");
+      } else {
+        passMsg && (passMsg.textContent = "Strong password ✅");
+        passMsg && passMsg.classList.remove("text-danger");
+        passMsg && passMsg.classList.add("text-success");
+      }
+    });
+  }
 
-  confirmInput.addEventListener("input", () => {
-    if (confirmInput.value !== passwordInput.value) {
-      confirmMsg.textContent = "Passwords do not match";
-      confirmMsg.classList.add("text-danger");
-      confirmMsg.classList.remove("text-success");
-    } else {
-      confirmMsg.textContent = "Passwords match ✅";
-      confirmMsg.classList.remove("text-danger");
-      confirmMsg.classList.add("text-success");
-    }
-  });
+  if (confirmInput && passwordInput) {
+    confirmInput.addEventListener("input", () => {
+      if (confirmInput.value !== passwordInput.value) {
+        confirmMsg && (confirmMsg.textContent = "Passwords do not match");
+        confirmMsg && confirmMsg.classList.add("text-danger");
+        confirmMsg && confirmMsg.classList.remove("text-success");
+      } else {
+        confirmMsg && (confirmMsg.textContent = "Passwords match ✅");
+        confirmMsg && confirmMsg.classList.remove("text-danger");
+        confirmMsg && confirmMsg.classList.add("text-success");
+      }
+    });
+  }
 
   form.addEventListener("submit", (ev) => {
     ev.preventDefault();
-    const email = emailInput.value.trim();
-    const password = passwordInput.value;
-    const confirmPassword = confirmInput.value;
+    const email = emailInput ? emailInput.value.trim() : "";
+    const password = passwordInput ? passwordInput.value : "";
+    const confirmPassword = confirmInput ? confirmInput.value : "";
 
     const check = validateEmail(email);
     if (!check.valid || !validatePassword(password) || password !== confirmPassword) {
@@ -114,7 +118,6 @@ function attachSignUpHandler() {
   });
 }
 
-// ========== Login ==========
 function attachLoginHandler() {
   const form = document.getElementById("loginForm");
   if (!form) return;
@@ -122,38 +125,10 @@ function attachLoginHandler() {
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
 
-  const emailMsg = document.getElementById("login-email-msg");
-  const passMsg = document.getElementById("login-pass-msg");
-
-  emailInput.addEventListener("input", () => {
-    const check = validateEmail(emailInput.value.trim());
-    emailMsg.textContent = check.msg;
-    if (check.valid) {
-      emailMsg.classList.remove("text-danger");
-      emailMsg.classList.add("text-success");
-    } else {
-      emailMsg.classList.add("text-danger");
-      emailMsg.classList.remove("text-success");
-    }
-  });
-
-  passwordInput.addEventListener("input", () => {
-    if (!validatePassword(passwordInput.value)) {
-      passMsg.textContent =
-        "Password must have number, uppercase, symbol, and at least 8 chars";
-      passMsg.classList.add("text-danger");
-      passMsg.classList.remove("text-success");
-    } else {
-      passMsg.textContent = "Strong password ✅";
-      passMsg.classList.remove("text-danger");
-      passMsg.classList.add("text-success");
-    }
-  });
-
   form.addEventListener("submit", (ev) => {
     ev.preventDefault();
-    const email = emailInput.value.trim();
-    const password = passwordInput.value;
+    const email = emailInput ? emailInput.value.trim() : "";
+    const password = passwordInput ? passwordInput.value : "";
 
     const check = validateEmail(email);
     if (!check.valid || !validatePassword(password)) {
@@ -162,10 +137,15 @@ function attachLoginHandler() {
     }
 
     const users = loadUsers();
-    const user = users.find((u) => u.email === email && u.password === password);
+    const userByEmail = users.find((u) => u.email === email);
 
-    if (!user) {
-      Swal.fire({ icon: "error", title: "Invalid credentials" });
+    if (!userByEmail) {
+      Swal.fire({ icon: "error", title: "User does not exist" });
+      return;
+    }
+
+    if (userByEmail.password !== password) {
+      Swal.fire({ icon: "error", title: "Invalid email or password" });
       return;
     }
 
@@ -178,15 +158,15 @@ function attachLoginHandler() {
       showConfirmButton: false,
       timer: 900,
     }).then(() => {
-      window.location.href = "Home.html";
+      window.location.replace("HomeLoggedin.html");
     });
   });
 }
 
-// ========== Logout ==========
-// ============================
-// ============================
 function LogOut() {
+  localStorage.removeItem("currentUser");
+  try { sessionStorage.clear(); } catch(e) {}
+
   Swal.fire({
     position: "center",
     icon: "success",
@@ -194,9 +174,60 @@ function LogOut() {
     showConfirmButton: false,
     timer: 1200,
   }).then(() => {
-    localStorage.removeItem(CurrentUserStorage);
     window.location.replace("login.html");
+    setTimeout(() => {
+      history.pushState(null, "", "login.html");
+      window.addEventListener("popstate", function () {
+        history.pushState(null, "", "login.html");
+      });
+    }, 0);
   });
+}
+
+
+function setupPasswordToggles() {
+  const eye1 = document.getElementById("togglePassword");
+  const eye2 = document.getElementById("toggleConfirmPassword");
+  const eye3 = document.getElementById("toggleLoginPassword");
+
+  if (eye1){
+    eye1.addEventListener("click" , () => {
+      let input = document.getElementById("password");
+      if (!input) return;
+      let type = input.type === "password" ? "text" : "password";
+      input.type = type;
+      let icon = eye1.querySelector("i");
+      if (!icon) return;
+      icon.classList.toggle("fa-eye");
+      icon.classList.toggle("fa-eye-slash");
+    });
+  }
+
+  if (eye2){
+    eye2.addEventListener("click" , () => {
+      let input = document.getElementById("confirmPassword");
+      if (!input) return;
+      let type = input.type === "password" ? "text" : "password";
+      input.type = type;
+      let icon = eye2.querySelector("i");
+      if (!icon) return;
+      icon.classList.toggle("fa-eye");
+      icon.classList.toggle("fa-eye-slash");
+    });
+  }
+
+  if (eye3){
+    eye3.addEventListener("click" , () => {
+      let input = document.getElementById("password");
+      if (!input) return;
+      let type = input.type === "password" ? "text" : "password";
+      input.type = type;
+      let icon = eye3.querySelector("i");
+      if (!icon) return;
+      icon.classList.toggle("fa-eye");
+      icon.classList.toggle("fa-eye-slash");
+    });
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -205,46 +236,6 @@ document.addEventListener("DOMContentLoaded", () => {
   attachLoginHandler();
 });
 
-
-// ========= Eye Icon =========
-// ============================
-// ============================
-
-
-const eye1 = document.getElementById("togglePassword");
-const eye2 = document.getElementById("toggleConfirmPassword");
-const eye3 = document.getElementById("toggleLoginPassword");
-
-if (eye1){
-    eye1.addEventListener("click" , () => {
-        let input = document.getElementById("password");
-        let type = input.type === "password" ? "text" : "password";
-        input.type = type;
-        let icon = eye1.querySelector("i");
-        icon.classList.toggle("fa-eye");
-        icon.classList.toggle("fa-eye-slash");
-    });
+function GoToCart() {
+    window.location.href = "Cart.html";
 }
-
-if (eye2){
-    eye2.addEventListener("click" , () => {
-        let input = document.getElementById("confirmPassword");
-        let type = input.type === "password" ? "text" : "password";
-        input.type = type;
-        let icon = eye2.querySelector("i");
-        icon.classList.toggle("fa-eye");
-        icon.classList.toggle("fa-eye-slash");
-    });
-}
-
-if (eye3){
-    eye3.addEventListener("click" , () => {
-        let input = document.getElementById("password");
-        let type = input.type === "password" ? "text" : "password";
-        input.type = type;
-        let icon = eye3.querySelector("i");
-        icon.classList.toggle("fa-eye");
-        icon.classList.toggle("fa-eye-slash");
-    });
-}
-

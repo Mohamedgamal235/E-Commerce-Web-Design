@@ -29,11 +29,6 @@
 
 #navbarNav a::before{
     content: "";
-}
-
-
-#navbarNav a::before{
-    content: "";
     position: absolute;
     left: 0%;
     bottom: 0px;
@@ -285,9 +280,6 @@ textarea{
     color: #333;
 }
 
-.navbar-brand:hover i{
-    
-}
 
 #FormForAddProduct:hover #iconBussnes{
     color: rgb(224, 164, 51) !important;

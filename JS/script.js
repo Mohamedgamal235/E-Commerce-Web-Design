@@ -1,5 +1,6 @@
 const CartItemStorage = 'cartItems';
 const ProductsStorage = 'products';
+const CurrentUserStorage = 'currentUser';
 const SHIPPING_FLAT = 25.00; 
 
 let DefaultProducts = [
@@ -263,7 +264,6 @@ function renderProductCards() {
 
 document.addEventListener('DOMContentLoaded', () => {
     renderProductCards();
-    attachLoginHandler();
     window.addEventListener('storage', (ev) => {
         if (ev.key === CartItemStorage || ev.key === ProductsStorage) {
             renderProductCards();
@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ============================================================
 
 function GoToCart() {
-    window.location.href = "cart.html";
+    window.location.href = "Cart.html";
 }
 
 // ============================================================
@@ -299,4 +299,35 @@ function saveCart(cart) {
 
 function formatPrice(n) {
     return `$ ${Number(n).toFixed(2)}`;
+}
+
+
+// ========== Logout ==========
+// ============================
+// ============================
+function LogOut() {
+    localStorage.removeItem("currentUser");
+    try { sessionStorage.clear(); } catch(e) {}
+
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "You have been logged out",
+        showConfirmButton: false,
+        timer: 1200,
+    }).then(() => {
+        window.location.replace("login.html");
+        setTimeout(() => {
+        history.pushState(null, "", "login.html");
+        window.addEventListener("popstate", function () {
+            history.pushState(null, "", "login.html");
+        });
+        }, 0);
+    });
+}
+
+
+
+function Login(){
+    window.location.replace("login.html");
 }
